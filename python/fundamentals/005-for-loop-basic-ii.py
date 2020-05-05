@@ -103,11 +103,9 @@ print(f"#9: {ultimateAnalysis([37,2,1,-9])}")
 def reverseList(aList):
     length = len(aList) - 1
     for i in range(length):
+        aList[i], aList[length] = aList[length], aList[i]
         if(i >= length):
             break
-        temp = aList[i]
-        aList[i] = aList[len(aList) - 1 - i]
-        aList[len(aList) - 1 - i] = temp
         length -= 1
     return aList
 
