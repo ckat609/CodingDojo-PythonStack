@@ -35,30 +35,16 @@ print(f"{david.first_name} {david.last_name} currently has: ${david.display_user
 natasha.make_deposit((450))
 print(f"{natasha.first_name} {natasha.last_name} currently has: ${natasha.display_user_balance()}")
 
-armando.make_deposit(100)
-print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
 
-armando.make_deposit(210)
-print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
+print(f"{armando.first_name} {armando.last_name} currently has: ${armando.make_deposit(100).make_deposit(210).make_withdrawl(75).make_withdrawl(100).display_user_balance()}")
 
-armando.make_withdrawl(75)
-print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
+print(f"{natasha.first_name} {natasha.last_name} currently has: ${natasha.make_withdrawl(50).make_withdrawl(150).make_withdrawl(25).display_user_balance()}")
 
-armando.make_withdrawl(100)
-print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
-
-natasha.make_withdrawl(50)
-print(f"{natasha.first_name} {natasha.last_name} currently has: ${natasha.display_user_balance()}")
-
-natasha.make_withdrawl(150)
-print(f"{natasha.first_name} {natasha.last_name} currently has: ${natasha.display_user_balance()}")
-
-natasha.make_withdrawl(25)
-print(f"{natasha.first_name} {natasha.last_name} currently has: ${natasha.display_user_balance()}")
 
 david.transfer_money(armando, 300)
 print(f"{david.first_name} {david.last_name} currently has: ${david.display_user_balance()}")
 print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
+
 
 armando.transfer_money(natasha, 150)
 print(f"{armando.first_name} {armando.last_name} currently has: ${armando.display_user_balance()}")
