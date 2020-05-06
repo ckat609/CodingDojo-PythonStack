@@ -43,9 +43,9 @@ def changeValue(oldValue, newValue, listToModify):
 
 
 print(f"#1-1: Value was changed to: {changeValInList(10, 15, [[5, 2, 3], [10, 8, 9], [6, 7, 10], [1, 10, 9]])}")
-print(f"#1-2: Name was changed to: {renameStudent('Jordan', 'Bryant', students)}")
-print(f"#1-3: Name was changed to: {renamePlayer('Messi', 'Andres', sports_directory)}")
-print(f"#1-4: Value was changed to: {changeValue(20, 30, z)}")
+# print(f"#1-2: Name was changed to: {renameStudent('Jordan', 'Bryant', students)}")
+# print(f"#1-3: Name was changed to: {renamePlayer('Messi', 'Andres', sports_directory)}")
+# print(f"#1-4: Value was changed to: {changeValue(20, 30, z)}")
 print("-----------------------------------------")
 
 students = [
@@ -65,12 +65,9 @@ def iterateDictionary(listToModify):
     output = "\n"
     for student in listToModify:
         count = 1
-        for item in student:
-            output += f"{item} - {student[item]}"
-            if(count == len(student)):
-                output += "\n"
-            else:
-                output += ", "
+        for key, value in student.items():
+            output += f"{key} - {value}"
+            output += "\n" if (count == len(student)) else ", "
             count += 1
     return output
 
@@ -86,9 +83,9 @@ def iterateDictionary2(key_name, some_list):
 
 def printInfo(some_list):
     content = "\n"
-    for key in some_list:
-        content += (f"{len(some_list[key])} {key}\n").upper()
-        for item in some_list[key]:
+    for key, value in some_list.items():
+        content += (f"{len(value)} {key}\n").upper()
+        for item in value:
             content += item + "\n"
         content += "\n"
     return content
