@@ -9,14 +9,20 @@ class BankAccount:
         return self
 
     def withdraw(self, amount):
-        self.amount -= amount
+        if(self.amount < 0):
+            print("Insufficient funds: Chargin a $5 fee")
+            self.amount -= 5
+        else:
+            self.amount -= amount
         return self
 
     def display_account_info(self):
+        print(self.amount)
         return self.amount
 
     def yield_interest(self):
-        self.amount += self.amount*self.interest
+        if(self.amount > 0):
+            self.amount += self.amount*self.interest
         return self
 
 
