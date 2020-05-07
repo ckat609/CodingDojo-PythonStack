@@ -43,7 +43,8 @@ class User:
         return self
 
     def show_balance(self, account):
-        self.accounts[account].show_balance()
+        print(self.accounts[account].show_balance())
+        return self
 
 
 armando = User("Armando", "Tello", "ckat609@yahoo.com")
