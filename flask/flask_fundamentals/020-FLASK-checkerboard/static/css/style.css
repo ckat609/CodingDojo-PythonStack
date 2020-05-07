@@ -1,0 +1,36 @@
+div {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.board {
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.row {
+    font-size: 0;
+}
+
+.space {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+.row:nth-child(odd) .space:nth-child(even) {
+    background-color: black;
+}
+
+.row:nth-child(even) .space:nth-child(odd) {
+    background-color: black;
+}
+
+.row:nth-child(odd) .space:nth-child(odd) {
+    background-color: tomato;
+}
+
+.row:nth-child(even) .space:nth-child(even) {
+    background-color: tomato;
+}
