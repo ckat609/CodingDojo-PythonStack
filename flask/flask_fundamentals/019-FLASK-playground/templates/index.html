@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <title>Playground!</title>
+</head>
+
+<body>
+    <h1>SUP?</h1>
+
+    {% for i in range(3 if(numBoxes == None) else numBoxes): %}
+    <div class="bg-box" style="background-color: {{strColor}};"></div>
+    {% endfor %}
+</body>
+
+</html>
