@@ -18,7 +18,7 @@ class BankAccount:
 
     def display_account_info(self):
         print(self.amount)
-        return self.amount
+        return self
 
     def yield_interest(self):
         if(self.amount > 0):
