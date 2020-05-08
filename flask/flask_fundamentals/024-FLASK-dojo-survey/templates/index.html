@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <title>Dojo Survey</title>
+</head>
+
+<body>
+    <div>
+        <form action="/process" method="post">
+            <div class="form-group">
+                <h1>Type in your information</h1>
+                <label for="fname">First name:</label>
+                <input class="form-control" type="text" name="fname" id="fname">
+
+                <label for="lname">Last name:</label>
+                <input class="form-control" type="text" name="lname" id="lname">
+
+                <label for="email">Email:</label>
+                <input class="form-control" type="text" name="email" id="email">
+
+
+                <label for="dojo">Dojo:</label>
+                <select class="custom-select" name="dojo" id="dojo">
+                    <option selected value="dallas">Dallas</option>
+                    <option value="chicago">Chicago</option>
+                    <option value="sanjose">San Jose</option>
+                    <option value="washington">Washington</option>
+                </select>
+
+                <label for="favlang">Favorite language:</label>
+                <select class="custom-select" name="favlang" id="favlang">
+                    <option value="c">C</option>
+                    <option value="javascript">Javascript</option>
+                    <option value="java">Java</option>
+                    <option selected value="python">Python</option>
+                </select>
+
+                <label for="">Do you feel the love?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="love" id="love1" value="Y" checked>
+                    <label class="form-check-label" for="love1">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="love" id="love2" value="N">
+                    <label class="form-check-label" for="love2">No</label>
+                </div>
+
+                <label for="">Favorite parts:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="algos" id="defaultCheck1" name="favs">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Algorithms
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="lecture" id="defaultCheck12" name="favs">
+                    <label class=" form-check-label" for="defaultCheck2">
+                        Lectures
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="lab" id="defaultCheck3" name="favs">
+                    <label class="form-check-label" for="defaultCheck3">
+                        Open lab
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="lunch" id="defaultCheck4" name="favs">
+                    <label class="form-check-label" for="defaultCheck4">
+                        Lunch
+                    </label>
+                </div>
+
+                <input class="btn btn-primary mb-2" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

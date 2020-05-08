@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <title>Dojo Survey</title>
+</head>
+
+<body>
+    <div>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="2">Submitted info</th>
+                </tr>
+            </thead>
+            <tr scope="row">
+                <td>First Name:</td>
+                <td>{{subfname}}</td>
+            </tr>
+            <tr scope="row">
+                <td>Last Name:</td>
+                <td>{{sublname}}</td>
+            </tr>
+
+            <tr scope="row">
+                <td>Email:</td>
+                <td>{{subemail}}</td>
+            </tr>
+            <tr scope="row">
+                <td>Dojo:</td>
+                <td>{{subdojo}}</td>
+            </tr>
+            <tr scope="row">
+                <td>Favorite Language:</td>
+                <td>{{subfavlang}}</td>
+            </tr>
+            <tr scope="row">
+                <td>Feels the love:</td>
+                <td>{{sublove}}</td>
+            </tr>
+            <tr scope="row">
+                <td>Favorite parts:</td>
+                <td>{{subfavs}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
