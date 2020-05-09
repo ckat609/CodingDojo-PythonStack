@@ -1,0 +1,104 @@
+<html>
+
+<head>
+  <title>Dojo Fruit Store Assignment</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>Dojo Fruit Store</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        {% if strawQuantity != 0 or raspQuantity != 0 or appleQuantity != 0 %}
+        <h1 class="jumbotron-heading">Thank you for your order!</h1>
+        <p class="lead text-muted">We ordered {{strawQuantity+raspQuantity+appleQuantity}} items for you and charged your student account on {{orderTS.strftime("%b %d, %Y at %I:%M%p")}}</p>
+        {% else %}
+        <h1 class="jumbotron-heading">Your shopping cart is empty!</h1>
+        <p class="lead text-muted">Go get some of that sweet, sweet food!</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        {% if fruitCount != 0 %}
+        <h4 class="mb-3">You have ordered</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Fruit Name</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if strawQuantity > 0 %}
+            <tr>
+              <td>Strawberry</td>
+              <td>{{strawQuantity}}</td>
+            </tr>
+            {% endif %}
+
+            {% if raspQuantity > 0 %}
+            <tr>
+              <td>Raspberry</td>
+              <td>{{raspQuantity}}</td>
+            </tr>
+            {%endif%}
+
+            {% if appleQuantity > 0 %}
+            <tr>
+              <td>Apple</td>
+              <td>{{appleQuantity}}</td>
+            </tr>
+            {%endif%}
+          </tbody>
+        </table>
+
+        <h4 class="mb-3">Your Information</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            First Name: {{fname}}
+          </div>
+          <div class="col-md-6 mb-3">
+            Last Name: {{lname}}
+          </div>
+        </div>
+
+        {% if studentId != "" %}
+        <div class="mb-3">
+          Your Student ID: {{studentId}}
+        </div>
+        {%endif%}
+
+        <hr class="mb-4">
+        {%endif%}
+        <a class="btn btn-primary btn-lg btn-block" href="/">Go Back</a>
+
+      </div>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

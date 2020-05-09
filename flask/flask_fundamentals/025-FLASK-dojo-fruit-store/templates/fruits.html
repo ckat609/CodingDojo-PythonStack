@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>Dojo Fruit Store Assignment</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>Dojo Fruit Store</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Dojo Fruits</h1>
+        <div class="row">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/strawberry.png') }}" alt="strawberry">
+            <div class="card-body">
+              <h5 class="card-title">Strawberry</h5>
+              <p class="card-text">A strawberry is both a low-growing, flowering plant and also the name of the fruit that it produces. Strawberries are soft, sweet, bright red berries. They're also
+                delicious. Strawberries have tiny edible seeds, which grow all over their surface.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/raspberry.png') }}" alt="strawberry">
+            <div class="card-body">
+              <h5 class="card-title">Raspberry</h5>
+              <p class="card-text">A raspberry is a deciduous bush from the Rosaceae family that grows up to 6 ft (2 m) high, with erect and thorny stems, a thin spine and perennial roots. The bush is
+                well-known for its fruit, a red spherical berry that grows continuously on the branches.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/apple.png') }}" alt="strawberry">
+            <div class="card-body">
+              <h5 class="card-title">Apple</h5>
+              <p class="card-text">A fruit of the domesticated tree Malus domestica (family Rosaceae), one of the most widely cultivated tree fruits. The apple is a pome (fleshy) fruit, in which the
+                ripened ovary and surrounding tissue both become fleshy and edible.</p>
+            </div>
+          </div>
+        </div>
+        <p>
+          <a href="/" class="btn btn-primary my-2">Go back</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>
