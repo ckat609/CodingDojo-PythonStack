@@ -16,11 +16,11 @@
         <h1>Welcome!</h1>
         <h3>You've been here {{count}} times!</h3>
 
+        <div class="form-group col-md-6">
+            <label for="addamount">Additional</label>
+            <input type="text" class="form-control" name="addamount" id="addamount" placeholder="25">
+        </div>
         <form action="/plus" method="post">
-            <div class="form-group col-md-6">
-                <label for="addamount">Additional</label>
-                <input type="text" class="form-control" name="addamount" id="addamount" placeholder="25">
-            </div>
             <input type="submit" value="Add 2" class="btn btn-primary mb-2">
             <input type="submit" value="Add N" class="btn btn-primary mb-2">
             <!-- <input type="submit" value="reset" class="btn btn-danger mb-2"> -->
