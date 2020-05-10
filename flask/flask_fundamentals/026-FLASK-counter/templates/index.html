@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+
+    <title>Counter</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Welcome!</h1>
+        <h3>You've been here {{count}} times!</h3>
+
+        <form action="/plus" method="post">
+            <div class="form-group col-md-6">
+                <label for="addamount">Additional</label>
+                <input type="text" class="form-control" name="addamount" id="addamount" placeholder="25">
+            </div>
+            <input type="submit" value="Add 2" class="btn btn-primary mb-2">
+            <input type="submit" value="Add N" class="btn btn-primary mb-2">
+            <!-- <input type="submit" value="reset" class="btn btn-danger mb-2"> -->
+            <a href="/reset" class="btn btn-danger mb-2">Reset</a>
+        </form>
+
+    </div>
+</body>
+
+</html>
