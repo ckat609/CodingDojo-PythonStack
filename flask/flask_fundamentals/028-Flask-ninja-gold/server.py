@@ -33,12 +33,13 @@ def process_gold():
     session['gold'] += goldAmount
 
     if (goldAmount >= 0):
-        activitiesContent = f"<p>{goldAmount} was earned from the {goldSource}</p>"
+        activitiesContent = f"<p class='win'>{goldAmount} was earned from the {goldSource}</p>"
     else:
-        activitiesContent = f"<p>{goldAmount} was lost at the {goldSource}</p>"
+        activitiesContent = f"<p class='lost'>{abs(goldAmount)} was lost at the {goldSource}</p>"
 
     session['activities'].append(activitiesContent)
-    print(session['activities'])
+    session['activitiesAmount'] = len(session['activities'])
+    print(session['activitiesAmount'])
     return redirect("/")
 
 

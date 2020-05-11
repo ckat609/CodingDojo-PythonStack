@@ -15,15 +15,27 @@
 <body>
     <div class="wrapper">
         <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Ninja Gold: {{session['gold']}} found so far.</h1>
-                <p class="lead">Gold is hard to come by. Work hard for it or go about finding it using your shady ways!</p>
-                <div class="text-right">
+            <div class="container nopadding">
+                <div class="text-left w-75 nospace">
+                    <h1 class="display-4">Ninja Gold: {{session['gold']}} found so far.</h1>
+                    <p class="lead">Gold is hard to come by. Work hard for it or go about finding it using your shady ways!</p>
+                    {% if 'activities' in session: %}
+                    {% if session['activitiesAmount'] < 4: %}
+                    {% for i in range(session['activitiesAmount'], -1, -1) %}
+                    {{session['activities'][i] | safe}}
+                    {% endfor %}
+                    {% else %}
+                    {% for i in range(session['activitiesAmount'], session['activitiesAmount'] - 5, -1) %}
+                    {{session['activities'][i] | safe}}
+                    {% endfor %}
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="text-right w-auto nospace">
                     <form action="/reset" method="post">
                         <input type="hidden" name="source" value="house">
                         <input type="submit" value="Restart game" class="btn btn-danger">
                     </form>
-
                 </div>
             </div>
         </div>
