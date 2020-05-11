@@ -1,0 +1,43 @@
+1.
+cd into project save location
+
+2.
+django-admin startproject your_project_name_here
+
+3.
+cd your_project_name_here
+
+4.
+(apps CANNOT have the same name as the project)
+python manage.py startapp your_app_name_here
+
+5.
+in settings.py add the names of the apps in INSTALLED_APPS
+
+
+6.
+URLS FOR PROJECT:
+from django.urls import path, include 
+
+urlpatterns = [
+    path('', include('your_app_name_here.urls')),
+]
+
+7.
+URLS FOR APPS:
+from django.urls import path     
+from . import views
+urlpatterns = [
+    path('', views.index),       
+]
+
+8.
+METHOD FOR VIEWS.PY:
+from django.shortcuts import render, HttpResponse
+
+def index(request):
+    return HttpResponse("this is the equivalent of @app.route('/')!")
+
+9.
+TO START THE SERVER:
+python manage.py runserver
