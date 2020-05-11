@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Ninja Gold: {{session['gold']}} found so far.</h1>
+                <p class="lead">Gold is hard to come by. Work hard for it or go about finding it using your shady ways!</p>
+                <div class="text-right">
+                    <form action="/reset" method="post">
+                        <input type="hidden" name="source" value="house">
+                        <input type="submit" value="Restart game" class="btn btn-danger">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="card w-25">
+                    <div class="card-header text-white bg-dark">House</div>
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/card-house.png') }}" alt="house">
+                    <div class="card-body">
+                        <h5 class="card-title">Earns 2-5 gold</h5>
+                        <p class="card-text">Find money in your pants' pockets or in between the couch cushions.</p>
+                    </div>
+                    <div class="text-center">
+                        <form action="/process_gold" method="post">
+                            <input type="hidden" name="source" value="house">
+                            <input type="submit" value="Find gold!" class="btn btn-warning">
+                        </form>
+                    </div>
+                </div>
+                <div class="card w-25">
+                    <div class="card-header text-white bg-dark">Farm</div>
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/card-farm.png') }}" alt="farm">
+                    <div class="card-body">
+                        <h5 class="card-title">Earns 10-20 gold</h5>
+                        <p class="card-text">Hard work always pays off in a place like this.</p>
+                    </div>
+                    <div class="text-center">
+                        <form action="/process_gold" method="post">
+                            <input type="hidden" name="source" value="farm">
+                            <input type="submit" value="Find gold!" class="btn btn-warning">
+                        </form>
+                    </div>
+                </div>
+                <div class="card w-25">
+                    <div class="card-header text-white bg-dark">Cave</div>
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/card-cave.png') }}" alt="cave">
+                    <div class="card-body">
+                        <h5 class="card-title">Earns 5-10 gold</h5>
+                        <p class="card-text">Embark on the quest of a lifetime... full of riches.</p>
+                    </div>
+                    <div class="text-center">
+                        <form action="/process_gold" method="post">
+                            <input type="hidden" name="source" value="cave">
+                            <input type="submit" value="Find gold!" class="btn btn-warning">
+                        </form>
+                    </div>
+                </div>
+                <div class="card w-25">
+                    <div class="card-header text-white bg-dark">Casino</div>
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/card-casino.png') }}" alt="casino">
+                    <div class="card-body">
+                        <h5 class="card-title">Earns or takes 0-50 gold</h5>
+                        <p class="card-text">Win big or go home... maybe you'll find a quarter in the couch.</p>
+                    </div>
+                    <div class="text-center">
+                        <form action="/process_gold" method="post">
+                            <input type="hidden" name="source" value="casino">
+                            <input type="submit" value="Find gold!" class="btn btn-warning">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
