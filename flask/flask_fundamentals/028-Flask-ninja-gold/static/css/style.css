@@ -1,0 +1,18 @@
+* {
+    outline: 0px solid red;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+
+
+.btn {
+    margin: 10px;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
