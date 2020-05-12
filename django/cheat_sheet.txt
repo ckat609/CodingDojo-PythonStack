@@ -33,7 +33,7 @@ urlpatterns = [
 
 8.
 METHOD FOR VIEWS.PY:
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse/redirect
 
 def index(request):
     return HttpResponse("this is the equivalent of @app.route('/')!")

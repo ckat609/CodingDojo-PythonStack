@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Random Word Generator</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Random word generator!</h1>
+        <p class="lead">This is a simple 14 character word generator. Click on the "Generate" button to generate a new word or the "Reset" button to reset the word count.</p>
+        <hr class="my-4">
+        <h2>Your new word is: {{ request.session.randomWord }}</h2>
+        <h4>You have generated {{ request.session.count }} random words</h4>
+        <div class="text-right">
+            <a class="btn btn-danger btn-lg" href="/reset" role="button">Reset</a>
+            <a class="btn btn-primary btn-lg" href="/random_word" role="button">Generate</a>
+        </div>
+    </div>
+</body>
+
+</html>
