@@ -1,0 +1,42 @@
+* {
+    outline: 0px solid red;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+
+
+.btn {
+    margin: 10px;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.nospace {
+    padding: 0 !important;
+    display: inline-block !important;
+    vertical-align: top;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.win {
+    padding: 0;
+    margin: 0;
+    color: green;
+    font-weight: 700;
+}
+
+.lost {
+    padding: 0;
+    margin: 0;
+    color: red;
+    font-weight: 700
+}

@@ -26,9 +26,7 @@ def random_word(request):
         if (aNum >= 91 and aNum <= 96) or (aNum >= 58 and aNum <= 64):
             i -= 1
         else:
-            # aChar = chr(aNum)
             randomWord += chr(aNum)
-            print(aNum)
     request.session['randomWord'] = randomWord
 
     return render(request, "index.html")
