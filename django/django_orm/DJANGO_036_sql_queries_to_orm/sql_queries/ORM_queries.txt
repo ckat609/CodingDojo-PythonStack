@@ -1,0 +1,8 @@
+Wizard.objects.create(name="Harry Potter", house="Gryffindor", pet="Hedwig", year="5")
+Wizard.objects.create(name="Hermione Granger", house="Gryffindor", pet="Crookshanks", year="5")
+Wizard.objects.all()
+Wizard.objects.filter(house="Gryffindor")
+
+student = Wizard.objects.get(id=1)
+student.year = 6
+student.save()
