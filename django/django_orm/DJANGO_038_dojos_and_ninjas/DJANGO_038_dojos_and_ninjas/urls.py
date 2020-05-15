@@ -1,4 +1,4 @@
-"""DJANGO_037_users_shell URL Configuration
+"""DJANGO_038_dojos_and_ninjas URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', include('users_app.urls')),
+    path('', include('dojos_ninjas_app.urls'))
 ]

@@ -1,0 +1,31 @@
+Dojo.objects.create(name="Coding Dojo: San Francisco",city="San Francisco", state="CA")
+Dojo.objects.create(name="Coding Dojo: Dallas",city="Dallas", state="TX")
+Dojo.objects.create(name="Coding Dojo: Denver",city="Denver", state="CO")
+
+Dojo.objects.get(id=1).delete()
+Dojo.objects.get(id=2).delete()
+Dojo.objects.get(id=3).delete()
+
+Dojo.objects.create(name="Coding Dojo: New York", city="Manhattan", state="NY")
+Dojo.objects.create(name="Coding Dojo: Miami", city="Miami", state="FL")
+Dojo.objects.create(name="Coding Dojo: Chicago", city="Chicago", state="IL")
+
+Ninja.objects.create(first_name="Elon", last_name="Musk", dojo=Dojo.objects.get(id=4))
+Ninja.objects.create(first_name="Ricky", last_name="Gervais", dojo=Dojo.objects.get(id=4))
+Ninja.objects.create(first_name="Eddie", last_name="Vedder", dojo=Dojo.objects.get(id=4))
+
+Ninja.objects.create(first_name="Roger", last_name="Rabbit", dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name="Willey", last_name="Coyote", dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name="Foghorn", last_name="Leghorn", dojo=Dojo.objects.get(id=5))
+
+Ninja.objects.create(first_name="Freddie", last_name="Krueger", dojo=Dojo.objects.get(id=6))
+Ninja.objects.create(first_name="Jason", last_name="Voorhees", dojo=Dojo.objects.get(id=6))
+Ninja.objects.create(first_name="Michael", last_name="Myers", dojo=Dojo.objects.get(id=6))
+
+Dojo.objects.first().ninjas.all()
+
+Dojo.objects.last().ninjas.all()
+
+Ninja.objects.last().dojo
+
+Dojo.objects.create(name="Coding Dojo: Las Vegas", desc="New Dojo!", city="Las Vegas", state="NV")
