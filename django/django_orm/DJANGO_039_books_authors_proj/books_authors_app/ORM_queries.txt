@@ -1,0 +1,40 @@
+from books_authors_app.models import Book, Author
+
+Book.objects.create(title="C Sharp", desc="A really boring book!")
+Book.objects.create(title="Java", desc="An even more boring book!")
+Book.objects.create(title="Python", desc="Now this is a fantastic language to learn.")
+Book.objects.create(title="PHP", desc="Seriously?  Why?")
+Book.objects.create(title="Ruby", desc="Honestly, I don't know what to think about this one")
+
+Author.objects.create(first_name="Jane", last_name="Austen")
+Author.objects.create(first_name="Emily", last_name="Dickinson")
+Author.objects.create(first_name="Fyodr", last_name="Dostoevsky")
+Author.objects.create(first_name="William", last_name="Shakespeare")
+Author.objects.create(first_name="Lau", last_name="Tsu")
+
+aBook = Book.objects.get(id=1)
+aBook.title = "C#"
+aBook.save()
+
+aAuthor = Author.objects.get(id=4)
+aAuthor.first_name = "Bill"
+
+aBook = Book.objects.get(id=1)
+Book.objects.get(id=1).authors.add(Author.objects.get(id=1))
+Book.objects.get(id=2).authors.add(Author.objects.get(id=1))
+
+Author.objects.get(id=2).books.add(Book.objects.get(id=1), Book.objects.get(id=2), Book.objects.get(id=3))
+
+Author.objects.get(id=3).books.add(Book.objects.get(id=1), Book.objects.get(id=2), Book.objects.get(id=3), Book.objects.get(id=4))
+
+Author.objects.get(id=4).books.add(Book.objects.get(id=1), Book.objects.get(id=2), Book.objects.get(id=3), Book.objects.get(id=4), Book.objects.get(id=5))
+
+Book.objects.get(id=3).authors.all()
+
+Book.objects.get(id=3).authors.remove(Author.objects.first())
+
+Book.objects.get(id=2).authors.add(Author.objects.get(id=5))
+
+Author.objects.get(id=3).books.all()
+
+Book.objects.get(id=5).authors.all()
