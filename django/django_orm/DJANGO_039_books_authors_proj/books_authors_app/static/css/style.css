@@ -1,0 +1,26 @@
+* {
+    /* background-color: red !important; */
+}
+
+.wrapper {
+    width: 920px;
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+    box-shadow: 0 0 5px;
+
+}
+
+.margin-top-25 {
+    margin-top: 25px;
+}
+
+.margin-padding-none,
+.container-view-booklist,
+.container-add-book {
+    margin: 0;
+    padding: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
