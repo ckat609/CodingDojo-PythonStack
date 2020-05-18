@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+
+    <title>Semi-Restful TV Shows: {{show.title}}</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">TV Shows</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show/add">Add show</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show/list">Shows list<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <h1>Edit: {{show.title}}</h1>
+        <form action="/show/edit/update" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+                <div class="col">
+                    <label for="show-title">Title</label>
+                    <input type="text" class="form-control" id="show-title" name="title" value="{{show.title}}">
+                    <input type="hidden" name="id" value="{{show.id}}">
+                </div>
+                <div class="col">
+                    <label for="show-image">Image URL</label>
+                    <input type="text" class="form-control" id="show-image" name="image" value="{{show.image}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="show-network">Network</label>
+                    <select class="form-control" id="show-network" name="network">
+                        {% for network in networks %}
+                        <option value="{{network.id}}" {% if network.id == show.network.id %}selected="selected" {% endif %}>{{network.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="show-release-date">Release date</label>
+                    <input type="date" class="form-control" id="show-release-date" name="release_date" value="{{date}}">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="show-description">Description</label>
+                <textarea type="text" class="form-control" id="show-description" name="description">{{show.description}}</textarea>
+            </div>
+            <a href="/show/view/{{show.id}}"><button type="button" class="btn btn-primary">View</button></a>
+            <button type="submit" class="btn btn-primary">Update</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
