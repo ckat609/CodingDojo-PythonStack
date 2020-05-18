@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+
+    <title>Semi-Restful TV Shows: {{show.title}}</title>
+</head>
+
+<body>
+    <div class="wrapper" style="vertical-align: top;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">TV Shows</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show/add">Add show</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show/list">Shows list<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="show-poster">
+                        <img src="{{show.image}}" class="show_poster" alt="poster-img">
+                    </div>
+                </td>
+                <td class="show-info">
+                    <div>
+                        <h1>{{show.title}}</h1>
+                        <h5>ID: {{show.id}}</h5>
+                        <h5>Network: {{show.network.name}}</h5>
+                        <h5>Release date: {{show.release_date}}</h5>
+                        <p>{{show.description}}</p>
+                        <hr>
+                        <h6>Last updated on {{show.modified_at|date:"M d, Y  H:m"}}</h6>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/show/edit/{{show.id}}" class="btn btn-primary">Edit</a>
+                    <a href="/show/delete/{{show.id}}" class="btn btn-danger float-right">DELETE</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

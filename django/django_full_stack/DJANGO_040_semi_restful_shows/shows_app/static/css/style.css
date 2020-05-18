@@ -1,0 +1,19 @@
+* {
+    /* background-color: red; */
+    outline: 0px solid red;
+}
+
+.wrapper {
+    width: 970px;
+    margin: 0 auto;
+}
+
+.show_poster {
+    width: 250px;
+}
+
+.show-info {
+    vertical-align: top;
+    display: inline-block;
+    padding: 0 10px;
+}
