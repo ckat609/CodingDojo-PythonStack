@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/products_style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>Belt-exam: add product</title>
+</head>
+
+<body>
+    <div class="container wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/user/login/success">Armando Tello: Belt exam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/product/add">Add product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product/list">Product list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <h1>Add product</h1>
+            <hr>
+            <form action="/product/add/db" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
+                    <div class="col">
+                        <label for="name">Image URL</label>
+                        <input class="form-control" type="text" name="image" id="image">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
