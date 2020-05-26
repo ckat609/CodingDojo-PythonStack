@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>Login and Resgistration</title>
+</head>
+
+<body>
+    <div class="container wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/user/login/success">Armando Tello: Belt exam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product/add">Add product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product/list">Product list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome back, {{first_name}}!</h1>
+            <p class="lead">Add new products and then add them to your list!</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="/product/add" role="button">Add products</a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>My wishlist</h2>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Added</th>
+                            <th scope="col">By</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products.all %}
+                        <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.created_at|date:"Y-m-d"}}</td>
+                            <td>{{product.user.first_name}}</td>
+                            <td>
+                                <a href="/product/view/{{product.id}}">View</a> |
+                                <a href="/wishlist/remove/{{product.id}}">Remove from wishlist</a>
+                                {% if product.user.id == request.session.user_id %}
+                                | <a href="/product/delete/{{product.id}}">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Other users' wishlists</h2>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Added</th>
+                            <th scope="col">By</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in excluded %}
+                        <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.created_at|date:"Y-m-d"}}</td>
+                            <td>{{product.user.first_name}}</td>
+                            <td>
+                                <a href="/product/view/{{product.id}}">View</a> |
+                                <a href="/wishlist/add/{{product.id}}">Add to wishlist</a>
+                                {% if product.user.id == request.session.user_id %}
+                                | <a href="/product/delete/{{product.id}}">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

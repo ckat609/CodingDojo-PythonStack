@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/products_style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>Login and Resgistration</title>
+</head>
+
+<body>
+    <div class="container wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/user/login/success">Armando Tello: Belt exam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/product/add">Add product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product/list">Product list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h1>{{name}}</h1>
+                    <h5>Added by: {{user}}</h5>
+                    <img src="{{image}}" alt="product-image" class="prod-poster">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    {% if exists %}
+                    <form action="/wishlist/remove/{{id}}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Remove from wishlist</button>
+                    </form>
+                    {%else%}
+                    <form action="/wishlist/add/{{id}}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Add to wishlist</button>
+                    </form>
+                    {%endif%}
+                </div>
+            </div>
+            <hr>
+
+            <ul>
+                {% for wishlist in wishlists %}
+                <li>{{wishlist.user.first_name}} {{wishlist.user.last_name}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<table>
+    <form action="" method="post">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </form>
+</table>

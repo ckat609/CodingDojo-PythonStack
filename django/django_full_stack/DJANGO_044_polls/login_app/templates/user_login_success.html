@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>Favorite Quotes</title>
+</head>
+
+<body>
+    <div class="container wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/user/login/success">Armando Tello: Belt exam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quote/add">Add quote</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quote/list">Quotes list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome back, {{first_name}}!</h1>
+            <p class="lead">Add new quotes or find quotes added by others!</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="/quote/add" role="button">Add a quote</a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>My favorite quotes</h2>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Quote</th>
+                            <th scope="col">Added by</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for quote in quotes %}
+                        <tr>
+                            <td>{{quote.id}}</td>
+                            <td>
+                                <p class="quote">{{quote.quote}}</p>
+                                <p>-by {{quote.quotedby}}</p>
+                            </td>
+                            <td>
+                                <a href="/quote/view/allby/{{quote.addedby_id}}">
+                                    {{quote.addedby.first_name}} {{quote.addedby.last_name}}
+                                </a>
+                            </td>
+                            <td>
+                                <div><a href="/quote/view/{{quote.id}}">View</a></div>
+                                {% if quote.addedby.id == request.session.user_id %}
+                                <div><a href="/quote/edit/{{quote.id}}">Edit</a></div>
+                                {% endif %}
+                                <div><a href="/quote/favorites/remove/{{quote.id}}">Remove</a></div>
+                                {% if quote.addedby.id == request.session.user_id %}
+                                <div><a href="/quote/delete/{{quote.id}}" class="danger">Delete</a></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h2>Quotable quotes</h2>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Quote</th>
+                            <th scope="col">Added by</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for quote in excluded %}
+                        <tr>
+                            <td>{{quote.id}}</td>
+                            <td>
+                                <p class="quote">{{quote.quote}}</p>
+                                <p>-by {{quote.quotedby}}</p>
+                            </td>
+                            <td>
+                                <a href="/quote/view/allby/{{quote.addedby_id}}">
+                                    {{quote.addedby.first_name}} {{quote.addedby.last_name}}
+                                </a>
+                            </td>
+                            <td>
+                                <div><a href="/quote/view/{{quote.id}}">View</a></div>
+                                {% if quote.addedby.id == request.session.user_id %}
+                                <div><a href="/quote/edit/{{quote.id}}">Edit</a></div>
+                                {% endif %}
+                                <div><a href="/quote/favorites/add/{{quote.id}}">Add to favorites</a></div>
+                                {% if quote.addedby.id == request.session.user_id %}
+                                <div><a href="/quote/delete/{{quote.id}}" class="danger">Delete</a></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
